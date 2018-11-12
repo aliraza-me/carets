@@ -1,0 +1,32 @@
+<div class="product-card">
+  <a class="full-width-link" href="{{ product.url | within: collection }}">
+    <span class="visually-hidden">{{ product.title }}</span>
+  </a>
+
+  <div class="search-list-item">
+    <div class="search-lis-item-imag">
+      <div class="list-list-item-image-wrapper">
+        <img class="item-image" src="{{ product.featured_image.src | img_url: '300x300', scale: 2 }}" alt="">
+      </div>
+    </div>
+
+    <div class="search-list-item-title">
+      <div class="item-title" aria-hidden="true">{{ product.title }}</div>
+      <!-- {% if product.compare_at_price > product.price %}
+        <div class="list-view-item__on-sale">{{ 'products.product.on_sale' | t }}</div>
+      {% endif %} -->
+      {% if section.settings.show_vendor %}
+        <div class="list-view-item__vendor medium-up--hide">{{ product.vendor }}</div>
+      {% endif %}
+      {% unless product.available %}
+        <div class="list-view-item__sold-out">{{ 'products.product.sold_out' | t }}</div>
+      {% endunless %}
+    </div>
+
+    <div class="search-list-item-price clearfix">
+      {% if product.available %}
+        {% include 'product-price', variant: product %}
+      {% endif %}
+    </div>
+  </div>
+</div>

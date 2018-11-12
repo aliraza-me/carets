@@ -1,0 +1,72 @@
+.responsive-tabs {
+  dt {
+    font: 400 20px $priFont;
+    padding: 30px 0px;
+    cursor: pointer;
+    color: $lightGrayColor;
+    margin-right: 60px;
+    box-sizing: border-box;
+    border-top: 1px solid $sapColor;
+    width: 100%;
+
+    &.active {
+      font-weight: 500;
+      color: $priColor;
+    }
+  }
+
+  dd {
+    display: none;
+    padding: 30px 0px;
+    font: 400 18px/30px $priFont;
+    color: $priColor;
+
+    .product-single__description {
+      margin-top: 0px;
+    }
+  }
+
+}
+
+.responsive-tabs .active + dd {
+  display: block;
+}
+
+
+.responsive-tabs-placeholder {
+  display: none;
+  font: 400 18px/30px $priFont;
+  color: $priColor;
+  padding: 30px 0px;
+}
+
+
+@media only screen and (min-width: 768px) {
+
+
+    .responsive-tabs dt {
+      padding: 22px 0px;
+      width: auto;
+      float: left;
+      border-top: 0;
+    }
+    .responsive-tabs .active + dd {
+      display: none;
+      padding: 30px 0px;
+      font: 400 18px/30px $priFont;
+      color: #2F2F2F;
+    }
+
+  .responsive-tabs-placeholder {
+      clear: both;
+      display: block;
+      padding: 30px 0px;
+      border-top: 1px solid #ccc;
+
+
+      .product-single__description {
+        margin: 0px;
+      }
+    }
+
+}

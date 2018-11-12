@@ -1,0 +1,238 @@
+.site-header {
+  padding: 35px 0px;
+  box-sizing: border-box;
+  transition: all 300ms linear;
+
+  &__logo {
+    padding-top: 8px;
+    vertical-align: bottom;
+    position: relative;
+    height: 100%;
+
+    svg {
+      height: 31px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  &-icons {
+    padding-top: 3px;
+
+    .link {
+      display: inline-block;
+      font: 700 14px $priFont;
+      color: $priColor;
+      text-decoration: none;
+      vertical-align: bottom;
+      position: relative;
+
+      .help-detail {
+        display: none;
+        position: absolute;
+        width: 330px;
+        transform: 50%;
+        background: #fff;
+        box-shadow: 0px -3px 25px rgba(0,0,0,.11);
+        padding: 24px;
+        text-align: left;
+        z-index: -1;
+        opacity: 0;
+        top: 75px;
+        transform: translateX(-46%);
+        transition: all .5s ease;
+
+
+        &-list {
+          padding-bottom: 15px;
+          border-bottom: 1px solid $sapColor;
+
+          .list-item {
+            &-link {
+              font: 400 16px/30px $priFont;
+              color: $priColor;
+
+              &:hover {
+                color: $secColor;
+              }
+            }
+          }
+        }
+
+        .quick-contact {
+          font: 400 16px $priFont;
+          color: $priColor;
+          margin-top: 15px;
+        }
+
+        &:before {
+          content: '';
+          border: 15px solid transparent;
+          z-index: 1001;
+          top: -20px;
+          border-top-width: 0;
+          border-bottom-color: #fff;
+          position: absolute;
+          left: 50%;
+          transform: translate(-50%, 0.5em);
+        }
+      }
+
+      &-icon {
+        display: none;
+      }
+
+      &.cart {
+        padding-left: 19px;
+        border-left: 1px solid $sapColor;
+        .link-icon {
+          display: block;
+        }
+        svg {
+          height: 31px;
+          display: block;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+
+      &.help {
+        cursor: pointer;
+        &:hover{
+        > .help-detail {
+            display: block;
+            z-index: 99999999;
+            opacity: 1;
+            top: 30px;
+          }
+        }
+      }
+    }
+  }
+
+  &.scroll {
+    padding: 15px 0px;
+    padding-top: 5px;
+
+
+    .site-header-icons {
+      padding-top: 14px;
+    }
+  }
+}
+
+.mobile-nav {
+  display: none;
+}
+
+#shopify-section-header {
+  position: fixed;
+  top: 0;
+  z-index: 999999;
+  background: #fff;
+  width: 100%;
+}
+
+.page-container {
+  margin-top: 150px;
+}
+
+@media all and (max-width: 1690px) {
+
+}
+@media all and (max-width: 1280px) {
+
+}
+@media all and (max-width: 1280px) {
+  .site-header-icons .link:not(:last-child) {
+    margin-right: 15px;
+  }
+
+  .site-header-icons .link.cart {
+    padding-left: 15px;
+  }
+}
+@media all and (max-width: 980px) {
+
+}
+@media all and (max-width: 768px) {
+  .mobile-nav {
+    display: block;
+
+    .nav .site-nav {
+      position: relative;
+    }
+  }
+
+  .site-header {
+    padding: 7px 0px 20px 0px;
+
+    &__logo {
+      padding-top: 15px;
+    }
+
+    .desktop-nav {
+      display: none;
+    }
+
+    &-icons {
+      padding-top: 15px;
+      .link {
+        &.help {
+          display: none;
+        }
+
+        &-text {
+          display: none;
+        }
+
+        &-icon {
+          display: block;
+        }
+
+        &.cart {
+          border: none;
+          padding: 0px;
+
+          svg {
+            height: 26px;
+          }
+        }
+
+        &:not(:last-child) {
+          margin-right: 18px;
+        }
+      }
+    }
+  }
+
+  .site-header__logo svg {
+    height: 26px;
+  }
+}
+@media all and (max-width: 480px) {
+  .site-header__logo-image {
+    img {
+      max-width: 146px !important;
+    }
+  }
+
+
+
+
+
+  #shopify-section-header {
+    .container {
+        padding: 0px;
+
+        .site-header {
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+    }
+  }
+
+}

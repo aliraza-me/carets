@@ -1,0 +1,366 @@
+<div data-section-id="{{ section.id }}" data-section-type="header-section">
+  <div class="container">
+    {% if section.settings.message %}
+    <div class="announcement-bar desktop">
+      <p class="announcement-bar-message"> <a href="https://caretsco.com/pages/returns-and-exchanges">{{ section.settings.message_text | escape }}</a></p>
+
+      {% if settings.show_multiple_currencies %}
+        <li class="currencies" id="Currancies">
+          {%- include 'bold-currency-picker-mount' -%}
+        </li>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <header class="site-header{% if section.settings.align_logo == 'left' %} border-bottom logo--left{% else %} logo--center{% endif %}" role="banner">
+      <div class="row">
+        <div class="col-lg-3 col-6">
+          <h1 class="site-header__logo">
+            <a href="/" class="site-header__logo-image{% if section.settings.align_logo == 'center' %} site-header__logo-image--centered{% endif %}">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 173 31">
+                <defs>
+                  <path id="a" d="M25.04 28.914c-.066.108-.23.132-.492.071a4.07 4.07 0 0 0-.915-.091c-.348 0-.84.071-1.477.213l-3.006.669c-1.367.303-2.614.455-3.74.455-2.547 0-5.016-.604-7.409-1.813-2.393-1.21-4.306-2.925-5.74-5.147C.827 21.049.109 18.47.109 15.54c0-2.932.718-5.587 2.152-7.965C4.35 4.091 7.5 1.822 11.71.768 13.05.43 14.39.26 15.73.26c1.837 0 4.015.31 6.535.932.764.19 1.41.385 1.94.588.53.203.855.304.976.304l.603-.162h.623c.16 0 .241.115.241.344V8.57c0 .135-.12.203-.362.203-.24 0-.382-.03-.422-.091a1.66 1.66 0 0 1-.12-.223 9.767 9.767 0 0 0-.131-.274 4.668 4.668 0 0 0-.141-.263 1.112 1.112 0 0 1-.09-.182c-2.011-4.067-5.06-6.1-9.149-6.1-3.686 0-6.568 1.182-8.645 3.546C5.51 7.55 4.472 10.68 4.472 14.578c0 3.897 1.143 7.244 3.428 10.04 2.286 2.797 5.392 4.195 9.32 4.195 2.144 0 4.098-.642 5.86-1.925 1.763-1.283 3.147-2.857 4.152-4.722.027-.08.108-.121.242-.121h.261c.134 0 .201.08.201.243 0 .162-.04.317-.12.466l-2.775 6.16zm16.856.608c0 .108-.053.162-.16.162H31.46c-.107 0-.16-.054-.16-.162v-.486c0-.108.087-.162.26-.162 1.837-.081 3.077-1.067 3.72-2.959l8.204-23.931a.227.227 0 0 0 .02-.102l-.221-.668c0-.068.026-.102.08-.102h4.021a.66.66 0 0 0 .11.04c.048.014.084.055.111.122l8.505 24.054c.188.364.339.695.452.993.114.297.245.567.393.81.321.554.85.98 1.588 1.277.616.31 1.18.466 1.689.466.107 0 .16.06.16.182v.466c0 .108-.053.162-.16.162H47.928c-.107 0-.16-.054-.16-.162v-.486c0-.108.247-.176.743-.203.496-.027.905-.054 1.226-.08 1.864-.203 2.795-.838 2.795-1.906a1.2 1.2 0 0 0-.04-.283L45.315 6.596a.5.5 0 0 0-.943.006l-7 20.185v.182c0 .351.181.669.543.952.818.635 1.917.953 3.298.953h.522c.108 0 .161.054.161.162v.486zm23.075.162c-.107 0-.16-.135-.16-.405v-.243c0-.108.053-.162.16-.162a2.8 2.8 0 0 0 .382-.04c.174-.028.355-.055.543-.082.188-.027.362-.057.523-.091.16-.034.274-.057.341-.07 1.368-.312 2.051-1.095 2.051-2.352V4.841c0-1.162-.462-1.986-1.387-2.472a3.663 3.663 0 0 0-1.77-.446h-.763c-.108 0-.161-.054-.161-.162v-.487c0-.108.08-.162.241-.162L76.01.808h2.03c2.373.162 4.36 1.03 5.962 2.604 1.602 1.574 2.403 3.513 2.403 5.816s-.952 4.097-2.855 5.38c-.59.392-1.227.743-1.91 1.054l6.092 10.03c1.059 1.757 2.48 2.993 4.262 3.709.148.04.222.135.222.283 0 .338-.222.507-.664.507-3.016 0-5.415-1.155-7.198-3.465a21.143 21.143 0 0 1-1.166-1.723l-5.207-8.227-4.786-.223h-.16c-.202 0-.302.095-.302.284v9.342c0 .743.208 1.297.623 1.661.416.365 1.133.615 2.152.75.268.04.596.098.985.172.388.075.653.112.794.112.14 0 .211.054.211.162v.486c0 .108-.054.162-.16.162H64.97zm8.877-27.792c-.181.007-.412.014-.694.02-.281.007-.422.119-.422.335v12.28l.04.608c.04.284.168.432.382.446l2.051.121c3.766 0 6.038-1.35 6.816-4.053.255-.85.382-1.823.382-2.918 0-2.134-.66-3.816-1.98-5.045-1.32-1.23-3.006-1.844-5.057-1.844-.188 0-.362.003-.523.01l-.482.02c-.161.007-.332.014-.513.02zm23.038 27.63v-.567c0-.108.053-.162.16-.162h.443c.563-.04 1.14-.064 1.73-.071a6.226 6.226 0 0 0 1.608-.213c1.099-.324 1.648-1.135 1.648-2.432V4.72c0-1.337-.784-2.188-2.352-2.553a21.565 21.565 0 0 0-1.347-.243h-.422c-.108 0-.161-.054-.161-.162v-.487c0-.108.053-.162.16-.162h19.121c.242 0 .416.044.523.132.107.088.174.28.201.577l.362 5.877c0 .135-.1.203-.302.203-.2 0-.348-.061-.442-.183-.08-.135-.184-.628-.312-1.479-.127-.851-.358-1.56-.693-2.128-.335-.567-.925-.925-1.77-1.074h-8.384c-.174 0-.261.088-.261.264v10.476c0 .135.067.203.201.203h6.957c1.796 0 2.694-1.054 2.694-3.161 0-.108.053-.162.16-.162h.483c.107 0 .161.054.161.162v8.673c0 .108-.054.162-.16.162h-.483c-.108 0-.161-.054-.161-.162 0-2-.577-3.155-1.73-3.466a4.184 4.184 0 0 0-1.025-.121h-6.896c-.134 0-.201.067-.201.203v9.868c0 1.013.462 1.587 1.387 1.722.268.041.55.061.845.061h6.695c1.38 0 2.453-.614 3.217-1.844.55-.878.885-1.884 1.005-3.02.04-.377.241-.566.603-.566.161 0 .242.087.242.263l-.664 6.809c-.08.189-.174.283-.281.283H97.047c-.108 0-.161-.054-.161-.162zm34.153-.486c0-.108.06-.162.181-.162h.563c1.314 0 2.37-.284 3.167-.851.797-.568 1.196-1.23 1.196-1.986V3.605c0-.284-.057-.443-.171-.476a3.532 3.532 0 0 0-.412-.092h-7.72c-1.247.27-2.065 1.236-2.454 2.898-.214.892-.342 1.462-.382 1.712-.04.25-.114.375-.22.375h-.363c-.08 0-.12-.027-.12-.08v-.67l.743-6.322c.08-.419.215-.628.403-.628.187 0 .388.132.603.395.214.264.623.395 1.226.395h21.674c.577 0 .925-.067 1.046-.202.12-.135.234-.267.342-.396a.513.513 0 0 1 .412-.192c.167 0 .275.068.322.203.046.135.083.277.11.425l.744 6.322v.67c0 .053-.04.08-.12.08h-.363c-.107 0-.18-.101-.22-.304-.215-1.35-.523-2.421-.926-3.212-.402-.79-1.038-1.28-1.91-1.469h-7.74c-.161.027-.299.058-.413.092-.113.033-.17.192-.17.476v22.432c0 .756.398 1.418 1.196 1.986.797.567 1.853.85 3.167.85h.583c.107 0 .16.055.16.163v.486c0 .108-.053.162-.16.162H131.2c-.107 0-.161-.054-.161-.162v-.486zm40.004-27.68c.134 0 .201.148.201.445l.523 4.316c.053.27.08.443.08.517 0 .074-.104.112-.311.112-.208 0-.339-.027-.392-.081a.878.878 0 0 1-.161-.274 15.484 15.484 0 0 0-.423-.922c-.281-.621-.723-1.236-1.327-1.844-1.474-1.432-3.136-2.148-4.986-2.148-1.112 0-2.164.365-3.156 1.094-.992.73-1.488 1.591-1.488 2.584 0 .993.184 1.854.553 2.584.368.73.854 1.405 1.457 2.026a16.115 16.115 0 0 0 2.071 1.783c.778.568 1.569 1.142 2.373 1.723 2.131 1.5 3.646 2.782 4.544 3.85 1.407 1.648 2.171 3.499 2.292 5.552 0 2.297-.875 4.13-2.624 5.502-1.75 1.37-3.783 2.056-6.102 2.056-1.488 0-2.67-.152-3.549-.455a45.745 45.745 0 0 1-1.82-.66c-.335-.134-.58-.202-.733-.202-.154 0-.252.007-.292.02l-.985.203c-.174 0-.282-.142-.322-.425-.388-3.35-.583-5.13-.583-5.34 0-.21.017-.351.05-.425.034-.075.124-.112.272-.112.375 0 .717.54 1.025 1.621 1.408 3.04 3.747 4.56 7.017 4.56 1.501 0 2.785-.46 3.85-1.378 1.066-.919 1.599-2.115 1.599-3.587 0-2.35-1.394-4.54-4.182-6.566-.79-.567-1.93-1.357-3.418-2.37-1.488-1.014-2.674-2.027-3.559-3.04-1.38-1.567-2.07-3.313-2.07-5.238 0-1.925.76-3.502 2.281-4.732 1.522-1.23 3.267-1.844 5.238-1.844 1.019 0 2.141.176 3.368.527 1.226.351 2.08.588 2.563.71l1.126-.143z"/>
+                </defs>
+                <use fill="#CCA45C" fill-rule="evenodd" xlink:href="#a"/>
+              </svg>
+            </a>
+          </h1>
+        </div>
+
+        <div class="col-lg-6 col-6 desktop-nav">
+          <nav class="nav" id="AccessibleNav" role="navigation">
+            {% include 'site-nav' %}
+          </nav>
+        </div>
+
+        <div class="col-lg-3 col-6">
+          <div class="text-right site-header-icons">
+            <div class="">
+              {% if section.settings.align_logo == 'left' %}
+              {% endif %}
+              <span class="link help" href="/help">
+                <span>Help</span>
+                <div class="help-detail">
+                  <ul class="help-detail-list">
+                    <li class="list-item"><a class="list-item-link" href="/pages/faqs">FAQ</a></li>
+                    <li class="list-item"><a class="list-item-link" href="/pages/use-and-care">Use and Care</a></li>
+                    <li class="list-item"><a class="list-item-link" href="/pages/sizing-fit-and-feel">Sizing, Fit and Feel</a></li>
+                    <li class="list-item"><a class="list-item-link" href="/pages/returns-and-exchanges">Return Policy</a></li>
+                  </ul>
+
+                  <p class="quick-contact">Email: <a class="custom-link" href="mailto:care@caretsco.com">care@caretsco.com</a></p>
+                </div>
+              </span>
+
+               <a class="link search js-Search"  href="#">
+                <i class="link-icon">{% include 'icon-search' %}</i>
+                 <span class="link-text">Search</span>
+               </a>
+
+              {% if shop.customer_accounts_enabled %}
+                {% if customer %}
+                  <a href="/account" class="link">
+                    <i class="link-icon">{% include 'icon-login' %}</i>
+                    <span class="link-text">{{ 'layout.customer.account' | t }}</span>
+                  </a>{% else %}
+
+                  <a class="link" href="/account/login">
+                    <i class="link-icon">{% include 'icon-login' %}</i>
+                    <span class="link-text">Login</span>
+                  </a>
+                {% endif %}
+              {% endif %}
+
+              <a class="link cart sd_dropdown-mini-cart" href="/cart">
+                  <!-- <div class="sd_dropdown-minibag"> {% include 'icon-cart' %}
+                    <span class="dropcount"></span>
+                  </div> -->
+                <span class="link-icon sd_dropdown-minibag" id="sd_dropdown-minibag">{% include 'icon-cart' %}</span>
+
+                {% if cart.item_count > -1 %}
+                  <div id="CartCount" class="site-header__cart-count">
+                    <span class="dropcount">{{ cart.item_count }}</span>
+                    <span class="icon__fallback-text medium-up--hide">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
+                  </div>
+                {% endif %}
+                <div class="sd_dropdown-inner-area">
+                  <div class="sd_dropdown-cart-items"></div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+  <div class="mobile-nav">
+    <nav class="nav" id="AccessibleNav" role="navigation">
+      {% include 'site-nav' %}
+    </nav>
+  </div>
+  {% if section.settings.message %}
+  <div class="announcement-bar mobile">
+    <p class="announcement-bar-message">{{ section.settings.message_text | escape }}</p>
+  </div>
+  {% endif %}
+</div>
+
+{% schema %}
+  {
+    "name": {
+      "en": "Header",
+      "de": "Titel",
+      "fr": "En-tête",
+      "it": "Header",
+      "ja": "ヘッダー",
+      "es": "Encabezado",
+      "pt-BR": "Cabeçalho"
+    },
+    "settings": [
+      {
+        "type": "radio",
+        "id": "align_logo",
+        "label": {
+          "en": "Logo alignment",
+          "de": "Logo-Ausrichtung",
+          "fr": "Alignement du logo",
+          "it": "Allineamento logo",
+          "ja": "ロゴアラインメント",
+          "es": "Alineación de logotipo",
+          "pt-BR": "Alinhamento do logotipo"
+        },
+        "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": {
+              "en": "Left",
+              "de": "Links",
+              "fr": "Gauche",
+              "it": "Sinistra",
+              "ja": "左",
+              "es": "Izquierda",
+              "pt-BR": "Esquerda"
+            }
+          },
+          {
+            "value": "center",
+            "label": {
+              "en": "Centered",
+              "de": "Mittig",
+              "fr": "Centré",
+              "it": "Centrato",
+              "ja": "中央揃え",
+              "es": "Centrada",
+              "pt-BR": "Centralizado"
+            }
+          }
+        ]
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": {
+          "en": "Logo image",
+          "de": "Logo-Foto",
+          "fr": "Image du logo",
+          "it": "Immagine del logo",
+          "ja": "ロゴ画像",
+          "es": "Logotipo",
+          "pt-BR": "Imagem do logotipo"
+        }
+      },
+      {
+        "type": "range",
+        "id": "logo_max_width",
+        "label": {
+          "en": "Custom logo width",
+          "de": "Logobreite",
+          "fr": "Largeur personnalisée du logo",
+          "it": "Larghezza logo personalizzato",
+          "ja": "ロゴの幅をカスタムする",
+          "es": "Ancho del logotipo personalizado",
+          "pt-BR": "Largura do logotipo personalizado"
+        },
+        "min": 50,
+        "max": 250,
+        "step": 5,
+        "unit": {
+          "it": "px",
+          "en": "px",
+          "ja": "px",
+          "fr": "px",
+          "es": "px",
+          "pt-BR": "px",
+          "de": "px"
+        },
+        "default": 100
+      },
+      {
+        "type": "link_list",
+        "id": "main_linklist",
+        "label": {
+          "en": "Menu",
+          "de": "Menü",
+          "fr": "Menu",
+          "it": "Menu",
+          "ja": "メニュー",
+          "es": "Menú",
+          "pt-BR": "Menu"
+        },
+        "default": "main-menu"
+      },
+      {
+        "type": "header",
+        "content": {
+          "en": "Announcement bar",
+          "de": "Ankündigungsbereich",
+          "fr": "Barre d'annonces",
+          "it": "Barra degli annunci",
+          "ja": "告知バー",
+          "es": "Barra de anuncios",
+          "pt-BR": "Barra de anúncios"
+        }
+      },
+      {
+        "type": "checkbox",
+        "id": "message",
+        "label": {
+          "en": "Show announcement",
+          "de": "Ankündigung anzeigen",
+          "fr": "Afficher l'annonce",
+          "it": "Mostra annuncio",
+          "ja": "告知を表示する",
+          "es": "Mostrar anuncio",
+          "pt-BR": "Exibir anúncio"
+        },
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "home_page_only",
+        "label": {
+          "en": "Home page only",
+          "de": "Nur Startseite",
+          "fr": "Page d'accueil uniquement",
+          "it": "Solo home page",
+          "ja": "ホームページのみ",
+          "es": "Solo página de inicio",
+          "pt-BR": "Apenas página inicial"
+        },
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "message_text",
+        "label": {
+          "en": "Text",
+          "de": "Text",
+          "fr": "Texte",
+          "it": "Testo",
+          "ja": "テキスト",
+          "es": "Texto",
+          "pt-BR": "Texto"
+        },
+        "default": {
+          "en": "Announce something here",
+          "de": "Hier etwas ankündigen",
+          "fr": "Annoncez quelque chose ici",
+          "it": "Annuncia qualcosa qui",
+          "ja": "ここで告知してください",
+          "es": "Anuncia algo aquí",
+          "pt-BR": "Anuncie algo aqui"
+        }
+      },
+      {
+        "type": "url",
+        "id": "message_link",
+        "label": {
+          "en": "Link",
+          "de": "Link",
+          "fr": "Lien",
+          "it": "Link",
+          "ja": "リンク",
+          "es": "Enlace",
+          "pt-BR": "Link"
+        },
+        "info": {
+          "en": "Optional",
+          "de": "Optional",
+          "fr": "Facultatif",
+          "it": "Facoltativo",
+          "ja": "選択させる",
+          "es": "Opcional",
+          "pt-BR": "Opcional"
+        }
+      },
+      {
+        "type": "color",
+        "id": "color_bg",
+        "label": {
+          "en": "Bar",
+          "de": "Zeile",
+          "fr": "Barre",
+          "it": "Barra",
+          "ja": "バー",
+          "es": "Barra",
+          "pt-BR": "Barra"
+        },
+        "default": "#7796a8"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": {
+          "en": "Text",
+          "de": "Text",
+          "fr": "Texte",
+          "it": "Testo",
+          "ja": "テキスト",
+          "es": "Texto",
+          "pt-BR": "Texto"
+        },
+        "default": "#fff"
+      }
+    ]
+  }
+{% endschema %}
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "{{ shop.name }}",
+  {% if section.settings.logo %}
+    {% assign image_size = section.settings.logo.width | append:'x' %}
+    "logo": "https:{{ section.settings.logo | img_url: image_size }}",
+  {% endif %}
+  "sameAs": [
+    "{{ settings.social_twitter_link }}",
+    "{{ settings.social_facebook_link }}",
+    "{{ settings.social_pinterest_link }}",
+    "{{ settings.social_instagram_link }}",
+    "{{ settings.social_tumblr_link }}",
+    "{{ settings.social_snapchat_link }}",
+    "{{ settings.social_youtube_link }}",
+    "{{ settings.social_vimeo_link }}"
+  ],
+  "url": "{{ shop.url }}{{ page.url }}"
+}
+</script>
+
+{% if template.name == 'index' %}
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": "{{ shop.name }}",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{{ shop.url }}/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "url": "{{ shop.url }}{{ page.url }}"
+    }
+  </script>
+{% endif %}

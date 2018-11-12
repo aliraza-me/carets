@@ -1,0 +1,230 @@
+.announcement {
+  &-bar {
+    padding: 14px 0px;
+    text-align: center;
+    border-bottom: 1px solid $sapColor;
+    position: relative;
+    transition: all 300ms linear;
+
+    &-message {
+      font: 700 14px $priFont;
+      color: $secColor;
+      transition: all 300ms linear;
+    }
+
+    .currencies {
+      position: absolute;
+      right: 0;
+      top: 2px;
+      width: 80px;
+
+      select {
+        border: none;
+        font: 700 14px $priFont;
+
+        option {
+          position: relative;
+          &.flag-USD:before {
+            content: '';
+            width: 16px;
+            height: 11px;
+            position: absolute;
+            background: url('./USD.svg');
+          }
+        }
+      }
+    }
+
+    &.scroll {
+      padding: 7px 0;
+
+      .currencies {
+        select {
+          padding: 4px;
+        }
+      }
+    }
+
+    &.mobile {
+      background: rgba(#f4f4f4, 1);
+      border-bottom: none;
+      display: none;
+
+      .announcement-bar-message {
+          color: $priColor;
+      }
+    }
+  }
+
+}
+
+#SearchDrawer {
+  margin: 0 auto;
+
+  &.drawer {
+    background: #fff;
+    padding: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    top: 155px;
+    .search-bar__form-wrapper {
+      width: 100%;
+
+      .search-bar__form {
+        .search-bar__input {
+          background: #f4f4f4;
+          height: 90px;
+          padding-left: 45px;
+          font: 400 26px $priFont;
+          color: $priColor;
+
+          &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            font: 400 26px $priFont;
+            color: rgba($priColor, 0.5);
+          }
+          &::-moz-placeholder { /* Firefox 19+ */
+            font: 400 26px $priFont;
+            color: rgba($priColor, 0.5);
+          }
+          &:-ms-input-placeholder { /* IE 10+ */
+            font: 400 26px $priFont;
+            color: rgba($priColor, 0.5);
+          }
+          &:-moz-placeholder { /* Firefox 18- */
+            font: 400 26px $priFont;
+            color: rgba($priColor, 0.5);
+          }
+        }
+      }
+    }
+
+    &.open {
+      opacity: 1;
+      z-index: 99999999;
+    }
+  }
+
+  .search-bar__close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    opacity: .5;
+  }
+}
+
+.search-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,.41);
+  z-index: -1;
+  opacity: 0;
+  transition: all .4s ease;
+
+  &.open {
+    opacity: 1;
+    z-index: 99999999;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+
+
+@media all and (max-width: 768px) {
+  .announcement {
+    &-bar {
+      &.desktop {
+        display: none;
+      }
+
+      &.mobile {
+        display: block;
+        position: absolute;
+        width: 100%;
+      }
+
+      &.scroll {
+        z-index: -1;
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+    }
+  }
+
+  #SearchDrawer {
+    margin: 0 auto;
+
+    &.drawer {
+      padding: 12px 10px 10px;
+      top: 0;
+      max-width: 100%;
+
+      .search-bar__form-wrapper {
+        width: 90%;
+
+        .search-bar__form {
+          .search-bar__input {
+
+            height: 60px;
+            padding-left: 15px;
+            font: 400 18px $priFont;
+
+            &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+              font: 400 18px $priFont;
+              color: rgba($priColor, 0.5);
+            }
+            &::-moz-placeholder { /* Firefox 19+ */
+              font: 400 18px $priFont;
+              color: rgba($priColor, 0.5);
+            }
+            &:-ms-input-placeholder { /* IE 10+ */
+              font: 400 18px $priFont;
+              color: rgba($priColor, 0.5);
+            }
+            &:-moz-placeholder { /* Firefox 18- */
+              font: 400 18px $priFont;
+              color: rgba($priColor, 0.5);
+            }
+          }
+        }
+      }
+    }
+
+    .search-bar__submit, .search-header__submit {
+      right: 15px;
+    }
+
+    .search-bar__close {
+      top: 21px;
+      right: 21px;
+    }
+  }
+}
+
+@media all and (max-width: 480px) {
+
+  .currencies {
+    display: none;
+  }
+
+  #SearchDrawer.drawer .search-bar__form-wrapper {
+    width: 86%;
+  }
+
+  #SearchDrawer .search-bar__submit, #SearchDrawer .search-header__submit {
+    right: 5px;
+  }
+
+  #SearchDrawer {
+    .search-bar__close {
+      top: 21px;
+      right: 10px;
+    }
+  }
+}

@@ -1,0 +1,269 @@
+.product {
+  &-card {
+    .product-link {
+      text-decoration: none;
+    }
+
+    .product-image-wrapper {
+      max-width: 100% !important;
+    }
+
+    .product-detail {
+      display: block;
+      text-align: left;
+      // padding-left: 80px;
+      margin-top: 42px;
+
+      .product-title {
+        font: 900 24px/26px $secFont;
+        color: $priColor;
+        margin-bottom: 15px;
+        text-decoration: none;
+      }
+
+      .price {
+        display: inline-block;
+        // margin-right: 26px;
+
+        &__regular {
+          display: inline-block;
+          font: 700 18px $priFont;
+          color: $priColor;
+        }
+
+        &__sale {
+          display: none;
+        }
+
+        &.price--on-sale {
+          .price__regular {
+            font: 400 14px $priFont;
+            color: $lightGrayColor;
+          }
+
+          .price__sale {
+            font: 700 16px $priFont;
+            color: $priColor;
+            display: inline-block;
+
+            .price-item__label {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    hr {
+      display: block;
+      height: 1px;
+      border: 0;
+      border-top: 1px solid $sapColor;
+      margin: 1em 0;
+      padding: 0;
+    }
+
+    .grid-view-item--sold-out {
+      .price--on-sale .price-item--regular {
+        text-decoration: none;
+        font: 700 18px $priFont;
+        color: $priColor;
+      }
+      .price__sale {
+        display: none;
+      }
+    }
+
+    &:hover {
+      .product-card-wrapper {
+        opacity: 1;
+      }
+    }
+  }
+
+  &-details {
+    .product-title {
+      font: 700 18px/24px $secFont;
+      color: $priColor;
+    }
+
+    .price-wrapper {
+      .price {
+        .price-new {
+          font: 700 16px $priFont;
+          color: $priColor;
+        }
+
+        .price-old {
+          font: 700 16px $priFont;
+          color: $lightGrayColor;
+        }
+      }
+    }
+  }
+}
+
+.stamped-product-reviews-badge {
+  display: inline-block;
+
+  .stamped-badge {
+    .stamped-starrating {
+      .stamped-fa-star {
+        &::before {
+          color: $secColor;
+          font-size: 18px;
+        }
+      }
+    }
+
+    .stamped-badge-caption {
+      font: 700 14px $priFont;
+      color: $priColor;
+      margin-left: 10px;
+    }
+  }
+}
+
+.stamped-badge[data-rating="0.0"], .stamped-badge[data-rating="0"] {
+  display: inline-block;
+}
+
+.fa-star, .fa-star-checked, .fa-star-half-o, .fa-star-o, .stamped-fa-star, .stamped-fa-star-checked, .stamped-fa-star-half-o, .stamped-fa-star-o {
+  color: $secColor;
+}
+
+#outlet-store {
+  .product {
+    &-card {
+      margin-bottom: 40px;
+      hr {
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid $sapColor;
+        margin: 1em 0;
+        padding: 0;
+        display: none;
+      }
+
+      .product-detail {
+          margin-top: 20px;
+      }
+    }
+  }
+}
+
+#shopify-section-featured-collections {
+  .product-detail {
+    padding-left: 80px;
+  }
+}
+
+.grid.grid--uniform.grid--view-items .feature-product-detail {
+  padding-left: 0px;
+}
+
+.gf-sort-wrap {
+  display: none;
+}
+
+#collection {
+  #gf-tree {
+    position: relative;
+    padding-bottom: 0;
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+  .gf-filter-contents {
+    display: none;
+  }
+}
+
+.filter-option {
+  #gf-tree {
+    float: left;
+    width: 90%;
+  }
+  .gf-top_one .gf-option-block .gf-block-title h3 {
+    height: 53px;
+    max-width: 270px;
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 1690px) {
+
+}
+@media all and (max-width: 1280px) {
+
+}
+@media all and (max-width: 980px) {
+
+}
+@media all and (max-width: 768px) {
+  #shopify-section-featured-collections .product-detail {
+    padding-left: 0;
+  }
+
+  .gf-top_one .gf-option-block {
+    max-width: 223px !important;
+  }
+}
+
+@media all and (max-width: 480px) {
+
+  .product {
+    &-card {
+      .product-detail {
+        margin-top: 10px;
+
+        .product-title {
+          font: 700 18px/26px $secFont;
+        }
+
+        .stamped-product-reviews-badge {
+          float: right;
+        }
+
+      }
+
+      hr {
+        display: none;
+      }
+
+      &:not(:last-child) {
+        .product-card-wrapper {
+          border-bottom: 1px solid $sapColor;
+          padding-bottom: 40px;
+        }
+      }
+
+    }
+  }
+
+  #outlet-store {
+    .product {
+      &-card {
+        .product-detail {
+            margin-top: 17px;
+        }
+      }
+    }
+
+    .stamped-product-reviews-badge {
+      display: block;
+      float: left;
+    }
+  }
+
+
+  #shopify-section-featured-collections {
+    .product-detail {
+      padding-left: 0px;
+    }
+  }
+}
+
+@media all and (max-width: 375px) {
+
+}

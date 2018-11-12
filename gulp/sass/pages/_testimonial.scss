@@ -1,0 +1,136 @@
+.testimonial {
+  .testimonial-item-wrapper {
+    padding: 0 15px;
+  }
+
+  &-item {
+    position: relative;
+
+    &:before {
+      content: '"';
+      font: 900 36px $secFont;
+      position: absolute;
+      z-index: 999;
+      top: 20px;
+      left: 14px;
+      color: $lighterGrayColor;
+    }
+
+
+    &-content {
+      background: #f4f4f4;
+      padding: 30px;
+      position: relative;
+
+      &:after {
+        content: '';
+        width: 0px;
+        height: 0px;
+        border-left: 0px solid transparent;
+        border-right: 40px solid transparent;
+        border-top: 30px solid #f4f4f4;
+        position: absolute;
+        bottom: -30px;
+      }
+
+      p:last-child {
+        position: relative;
+        &:before {
+          content: '"';
+          font: 900 36px $secFont;
+          position: absolute;
+          z-index: 999;
+          bottom: -20px;
+          right: 0px;
+          color: $lighterGrayColor;
+        }
+      }
+
+    }
+
+    .customer-des {
+      margin-top: 35px;
+
+      .name {
+        font: 500 26px/40px $secFont;
+        color: $priColor;
+      }
+
+      .location {
+        font: 400 16px $priFont;
+        color: #7b7b7b;
+        height: 60px;
+      }
+    }
+
+    &:hover {
+      .testimonial-item-content {
+        background: #fff6e6;
+
+        &:after {
+          border-top: 30px solid #fff6e6;
+        }
+      }
+    }
+  }
+}
+
+
+#testimonials {
+
+  .main-content {
+    .container {
+      padding: 0;
+    }
+  }
+
+  .static-page {
+    max-width: 100%;
+
+    .size-tabs {
+      &-header {
+        padding: 0 15px;
+        border-bottom: none;
+        &-links {
+          text-align: left;
+          border-bottom: 1px solid #E0E0E0;
+
+          .filter-header-title {
+            font: 700 14px $priFont;
+            color: $priColor;
+            padding-right: 15px;
+            border-right: 1px solid $sapColor;
+            margin-right: 15px;
+          }
+          .links-item {
+             margin-right: 48px;
+
+            .link {
+              font: 700 16px $priFont;
+              color: #979797;
+              padding-bottom: 25px;
+
+              &.active {
+                color: $priColor;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .size-tabs-content {
+      max-width: 100%;
+
+
+    }
+
+    .size-tabs-content-item {
+      display: block;
+
+      &.displayNone {
+        display: none;
+      }
+    }
+  }
+}

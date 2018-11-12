@@ -1,0 +1,10 @@
+development:
+  store: barefootdressshoe.myshopify.com
+  password: 85e8a41fa1a8b2142c60bab6dba5231e
+  theme_id: "32029573220"
+  bucket_size: 40
+  refill_rate: 2
+  ignore_files:
+      - "*.swp"
+      - "*~"
+      - "config/settings_data.json"

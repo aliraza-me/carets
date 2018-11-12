@@ -1,0 +1,63 @@
+<div class="size-tabs">
+  <div class="size-tabs-header">
+    <ul class="size-tabs-header-links">
+      <li class="links-item"> <a class="link active" rel="detailsProduct" href="#"> Details </a> </li>
+      <li class="links-item"> <a class="link" rel="deliveryReturns" href="#"> Delivery & Returns </a> </li>
+      <li class="links-item"> <a class="link" rel="shoeCare" href="#"> Shoe Care </a> </li>
+      <li class="links-item"> <a class="link" rel="FAQs" href="#"> FAQs </a> </li>
+    </ul>
+  </div>
+
+  <div class="size-tabs-content">
+    <div class="size-tabs-content-item show" id="detailsProduct">
+      <div class="collapse-item open">
+        <h2 class="collapse-item-heading">Do not roll your dress shoes into a ball (or a taco).</h2>
+
+        <div class="collapse-item-content">
+          One of the coolest things about getting a new pair of minimalist shoes is showing off their flexibility by rolling it up into a ball or a taco, but you must not do so with our shoes. First, let me assure you there is more flexibility in the shoe than the foot is actually capable of. Now, the look of a dress shoe is one of structure, much like a well-fitted suit. This structure is made by pulling leather tightly over a plastic mold, called a "last". Through your years of ownership, a great pair of dress shoes--through repeated flexing and relaxing, and layers of wax and oil from shine--will develop an aged patina unique to you. However, if you try to roll the dress shoes into a ball or a taco, ridges will appear where they’re not supposed to. You don’t want to look like a man who carelessly smushed his shoes in the bottom of his suitcase. You want to look like a man who has gone to many great places and done many great things with his shoes.
+        </div>
+      </div>
+    </div>
+
+    <div class="size-tabs-content-item" id="deliveryReturns">
+      <div class="collapse-item open">
+        <h2 class="collapse-item-heading">HOW MUCH DOES IT COST?</h2>
+
+        <div class="collapse-item-content">
+          $85 for the comprehensive Restoration package, plus $10 for return shipping within the USA.
+        </div>
+      </div>
+    </div>
+
+    <div class="size-tabs-content-item" id="shoeCare">
+      <div class="collapse-item open">
+        <h2 class="collapse-item-heading">HOW MUCH DOES IT COST?</h2>
+
+        <div class="collapse-item-content">
+          $85 for the comprehensive Restoration package, plus $10 for return shipping within the USA.
+        </div>
+      </div>
+    </div>
+
+    <div class="size-tabs-content-item" id="FAQs">
+      <div class="collapse-item open">
+        <h2 class="collapse-item-heading">HOW MUCH DOES IT COST?</h2>
+
+        <div class="collapse-item-content">
+          $85 for the comprehensive Restoration package, plus $10 for return shipping within the USA.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% for item in cart.items %}
+  <!-- {{item.id}} -->
+  <img src="{{item.image | img_url: '300x300'}}" alt="{{ itemsss.product_title }}">
+  {{item.product_title}}
+
+  <p class="small--hide">
+    <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="btn btn--small btn--tertiary cart__remove" aria-label="{{ 'cart.general.remove' | t }} {{ item.product.title }}">{{ 'cart.general.remove' | t }}</a>
+  </p>
+
+{% endfor %}

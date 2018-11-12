@@ -1,0 +1,139 @@
+
+
+
+<div class="container">
+  {% include 'breadcrumbs' %}
+  <div class="grid">
+    <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
+      <div class="section-header text-center">
+        <h1 class="page-title">{{ page.title }}</h1>
+        <!-- <h4 class="page-subtitle">Our team is super helpful</h4> -->
+      </div>
+      <div class="size-tabs-content">
+        <div class="row">
+          <div class="col-md-12">
+            {% if page.content.size > 0 %}
+            <div class="rte">
+              <!-- {{ page.content }} -->
+              <!-- <h2 class="page-sec-heading">YOU MAY WANT TO KNOW ABOUT:</h2> -->
+              <div class="collapse-item open">
+                <h2 class="collapse-item-heading">Pre-Order Status?</h2>
+
+                <div class="collapse-item-content">
+                  <div class="content-wrapper">
+                    <p>Please check our latest post in <a href="#">News</a></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="collapse-item open">
+                <h2 class="collapse-item-heading">Shipping Options?</h2>
+
+                <div class="collapse-item-content">
+                  <div class="content-wrapper">
+                    <p>Here are our shipping options and prices (you’ll also see these during checkout):</p>
+
+                    <p>USA 3-5 day: FREE</p>
+                    <p>USA 2-4 day: $15</p>
+                    <p>USA 2 day: $25</p>
+
+                    <p>International 5-12 day: $27</p>
+
+                    <p>DESTINATIONS: We ship anywhere in the world serviced by DHL, FedEx, or USPS. Note: we cannot specify a carrier. </p>
+
+                    <p>CUSTOMS DUTIES: Your government may assess additional customs duties and taxes before you can receive the item. </p>
+
+                    <p>(Click here for our full return policy).</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="collapse-item open">
+                <h2 class="collapse-item-heading">Brown Shoes?</h2>
+
+                <div class="collapse-item-content">
+                  <div class="content-wrapper">
+                    <p>
+                      We have a rich oxblood colorway to the Fer, available now. What we love about this color is that it pretty much goes with anything that black or brown would! We are working on adding a Honey and a Cacao color as well. The best way to get news on their development and release is through our monthly <a target="_blank" href="http://eepurl.com/i2egb">Newsletter</a>.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="collapse-item open">
+                <h2 class="collapse-item-heading">Sizing?</h2>
+
+                <div class="collapse-item-content">
+                  <div class="content-wrapper">
+                    <p> <a target="_blank" href="/pages/sizing-fit-and-feel">Click here for our Sizing Guide</a>. If additional clarification is needed, we’d be more than happy to help. Shoot us a message using the form below!</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="collapse-item open">
+                <h2 class="collapse-item-heading">Orthotics?</h2>
+
+                <div class="collapse-item-content">
+                  <div class="content-wrapper">
+                    <p>Our shoes currently don't have a removable insert, so there might not be enough space for a traditional orthotic. When we first designed these shoes, we were a bit of a barefoot purist, and naive in thinking that going barefoot is a cure-all for everyone. We know better now that some people could still benefit from orthotics. We’re going to correct this, but it requires a change in the last, and that requires changing everything else: upper patterns and outsole molds, so it may take longer than a year before we can have those changes hit shelves. Fortunately, we met the founder of Soul Insole. It's a small sticky gel insert that can fit in a larger range of footwear than traditional inserts.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="" style="margin-top: 40px;">
+              <h2 class="page-sec-heading"></h2>
+              <h2 class="page-sec-heading">CARETS Address:</h2>
+              <p class="txt">Hunter &amp; Fuchsia LLC, 2150 Pacific Beach Dr #149, San Diego, CA 92109</p>
+            </div>
+            {% endif %}
+          </div>
+
+          <div class="col-md-12">
+            <div class="contact-form form-vertical">
+
+              <h2 class="page-sec-heading">Send an email:</h2>
+              {%- assign formId = 'ContactForm' -%}
+              {% form 'contact', id: formId %}
+              {% include 'form-status', formId %}
+
+              <div class="">
+                <!-- <label for="{{ formId }}-name">{{ 'contact.form.name' | t }}</label> -->
+                <input type="text" id="{{ formId }}-name" name="contact[name]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="{{ 'contact.form.name' | t }}">
+              </div>
+
+              <div class="">
+                <!-- <label for="{{ formId }}-email">{{ 'contact.form.email' | t }} <span aria-hidden="true">*</span></label> -->
+                <input
+                type="email"
+                id="{{ formId }}-email"
+                name="contact[email]"
+                autocorrect="off"
+                autocapitalize="off"
+                value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                aria-required="true"
+                placeholder="{{ 'contact.form.email' | t }}"
+                {%- if form.errors contains 'email' -%}
+                class="input--error"
+                aria-invalid="true"
+                aria-describedby="{{ formId }}-email-error"
+                {%- endif -%}
+                >
+                <span id="{{ formId}}-email-error" class="input-error-message">{% include 'icon-error' %} {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+              </div>
+
+              <input type="tel" id="{{ formId }}-phone" name="contact[phone]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}" placeholder="{{ 'contact.form.phone' | t }}">
+
+              <textarea rows="10" id="{{ formId }}-message" name="contact[body]" placeholder="{{ 'contact.form.message' | t }}">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+
+              <input type="submit" class="btn" value="{{ 'contact.form.submit' | t }}">
+
+              {% endform %}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

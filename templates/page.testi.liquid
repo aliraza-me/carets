@@ -1,0 +1,56 @@
+<div class="container">
+  {% include 'breadcrumbs' %}
+  <div class="">
+    <div class="">
+      <div class="section-header text-center">
+        <h1 class="page-title">{{ page.title }}</h1>
+      </div>
+
+      <div class="rte static-page">
+        {{ page.content }}
+
+        <div class="size-tabs">
+          <div class="size-tabs-header">
+            <ul class="size-tabs-header-links">
+              <span>Filter by</span>
+              <li class="links-item"> <a class="link active" rel="pain" href="#"> Pain </a> </li>
+              <li class="links-item"> <a class="link" rel="minimalistDress" href="#"> Minimalist dress shoe </a> </li>
+              <li class="links-item"> <a class="link" rel="customerService" href="#"> Customer service </a> </li>
+            </ul>
+          </div>
+
+          <div class="size-tabs-content">
+            <div class="size-tabs-content-item show" id="pain">
+              <div id="container" class="masonry">
+                <div class="testimonial">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="testimonial-item">
+                        <figcaption>
+                          <p>Just wanted to drop a quick note and thank you for sending through the shoes.  DHL where great and delivered smoothly. The shoes are great.  The fit and comfort are 100%…</p>
+                        </figcaption>
+
+                        <div class="customer-des">
+                          <h4 class="name">Amer</h4>
+                          <div class="location">Dubai, UAE</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="size-tabs-content-item" id="minimalistDress">
+
+            </div>
+
+            <div class="size-tabs-content-item" id="customerService">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

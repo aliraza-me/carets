@@ -1,0 +1,157 @@
+<!-- /* Start: product Template */ -->
+<script id="productTemplate" type="template/html">
+  <div class="product col-lg-4 col-md-6 col-12">
+      <div class="product-inner clearfix aspect-ratio-1333">
+          <div class="product-thumbnail hover-effect">
+              <a class="loop-thumbnail" href="/collections/{{collection.handle}}/products/{!productHandle!}">
+                                                          <div class="aspect-product__images">
+                      <img class="lazy product-item-image aspect-product__picture" src="{!productFeaturedImage!}" data-src="{!productFeaturedImage!}" alt="{!productTitle!}">
+                      <img class="lazy image-hover aspect-product__picture" src="{!productSecondImage!}" alt="{!productTitle!}">                    </div>
+              </a>
+                          </div>
+          <div class="product-details">
+              <h3><a class="product-title" href="/products/{!productHandle!}">{!productTitle!}</a></h3>
+                  <div class="star-rating"><span class="shopify-product-reviews-badge" data-id="{!productId!}"></span></div>
+              <span class="price-wrapper">
+                  <span class="price">
+                      {!productPrice!}
+                      {!productCompareAtPrice!}
+                  </span>
+              </span>
+              {!colorSwatch!}                <div class="clear"></div>
+          </div>
+      </div>
+  </div>
+</script>
+
+<script id="productTemplate_soldOut" type="template/html">
+    <span class="sold-out">{{ 'globo_filter.generate.sold_out' | t }}</span>
+</script>
+<script id="productTemplate_sale" type="template/html">
+    <span class="sale">{{ 'globo_filter.generate.sale' | t }}</span>
+</script>
+<script id="productTemplate_price" type="template/html">
+    <span class="price-new money">{!price!}</span>
+</script>
+<script id="productTemplate_comparePrice" type="template/html">
+    <del><span class="price-old money">{!compare_at_price!}</span></del>
+</script>
+<!-- /* End: product Template */ -->
+
+<!-- /* Start: filter Tree Template */ -->
+<script id="filterTreeHTML" type="template/html">
+  <h3 href="javascript:void(0)" class="gf-refine-toggle-mobile visible-xs" tabindex="0" aria-label="Filter by">
+     {{ 'globo_filter.sorting.filter_by' | t }} <i class="ion-arrow-right"></i>   {!clearAll!}
+  </h3>
+  <div class="gf-filter-contents">{!filterHTML!}</div>
+  {!selectedHTML!}
+</script>
+
+<script id="selectedHTML" type="template/html">
+<div class="globo-selected-items-wrapper hidden-xs">
+  <ul class="globo-selected-items">
+    {!selectedItems!}
+    <li class="selected-item gf-option-label clearall"><a href="javascript:;" onclick="clearAllFilter()" class="clear-refinements">{{ 'globo_filter.generate.clear_all' | t }}</a></li>
+  </ul>
+</div>
+</script>
+
+<script id="selectedItems" type="template/html">
+<li class="selected-item gf-option-label">
+  <a onclick="removeFilterValue({!filterOptionId!},{!id!})" href="javascript:;">
+    <span class="selected-item"><strong>{!value!}</strong></span>
+    <span class="gf-clear"></span>
+  </a>
+</li>
+</script>
+
+<script id="clearHTML" type="template/html">
+  <a href="javascript:" class="gf-clear" onclick="removeFilter({!filterOptionId!})">{{ 'globo_filter.generate.clear' | t }}</a>
+</script>
+
+<script id="clearAllHTML" type="template/html">
+  <a href="javascript:;" onclick="clearAllFilter()" class="gf-refine-toggle">{{ 'globo_filter.generate.clear_all' | t }}</a>
+</script>
+
+<script id="filterHTML" type="template/html">
+  <div class="gf-option-block {!style!} {!iscollapsed!}">
+    <div class="gf-block-title">
+      <h3><span>{!label!}</span><span class="js-status-icon ion-plus-round" aria-hidden="true"></span><span class="js-status-icon ion-minus-round" aria-hidden="true"></span></h3>
+      {!clear!}
+    </div>
+    <div class="gf-block-content">
+      <div class="gf-scroll {!scroll!}">
+        {!ul!}
+      </div>
+    </div>
+  </div>
+</script>
+
+<script id="filterCollectionItem" type="template/html">
+  <li><a{!selected!} onclick="changeCollection({!id!}, '{!handle!}')" href="javascript:">{!value!}{!count!}</a></li>
+</script>
+
+<script id="filterCheckboxItem" type="template/html">
+  <li><a{!selected!} onclick="toggleCheckboxFilter({!filterOptionId!},{!id!})" href="javascript:">{!value!}{!count!}</a></li>
+</script>
+
+<script id="filterRadioItem" type="template/html">
+  <li><a{!selected!} onclick="toggleRadioFilter({!filterOptionId!},{!id!})" href="javascript:">{!value!}{!count!}</a></li>
+</script>
+
+<script id="filterSwatchItem" type="template/html">
+  <li><a{!selected!} onclick="toggleCheckboxFilter({!filterOptionId!},{!id!})" href="javascript:" title="{!value!}">{!swatch!}</a></li>
+</script>
+
+<script id="filterRangeBlock" type="template/html">
+  <div class="gf-range-inputs">
+    <input class="gf-range-min" id="min-{!filterOptionId!}" value="{!valuemin!}" type="text">
+    <span class="gf-range-split"> - </span>
+    <input class="gf-range-max" id="max-{!filterOptionId!}" value="{!valuemax!}" type="text">
+    <input class="gf-inputs" value="{!valuemin!}:{!valuemax!}" id="ranger-{!filterOptionId!}" name="filter[{!filterOptionId!}][]" type="hidden">
+  </div>
+  <div class="gf-range-slider" data-min="{!rangemin!}" data-max="{!rangemax!}" data-id="{!filterOptionId!}" data-attribute="{!filterOptionId!}" id="slider-{!filterOptionId!}"></div>
+</script>
+<!-- /* End: filter Tree Template */ -->
+
+<!-- /* Start: pagination Template */ -->
+<script id="filterPagination" type="template/html">
+    <ul class="pagination">
+        {!firstPage!}
+        {!prevSeperate!}
+        {!prevPrevPage!}
+        {!prevPage!}
+        {!currentPage!}
+        {!nextPage!}
+        {!nextNextPage!}
+        {!nextSeperate!}
+        {!lastPage!}
+
+
+        {!prevArrow!}
+        {!nextArrow!}
+    </ul>
+</script>
+
+<script id="filterPagination_prevArrow" type="template/html">
+    <li class="prev"><a onclick="setPage({!page!})" href="javascript:;" rel="prev">Previous</a></li>
+</script>
+<script id="filterPagination_prevArrowDisabled" type="template/html">
+    <li class="disabled prev"><span>Previous</span></li>
+</script>
+<script id="filterPagination_seperate" type="template/html">
+    <li><span>…</span></li>
+</script>
+<script id="filterPagination_page" type="template/html">
+    <li><a onclick="setPage({!page!})" href="javascript:">{!page!}</a></li>
+</script>
+<script id="filterPagination_pageActive" type="template/html">
+    <li class="active"><span>{!page!}</span></li>
+</script>
+<script id="filterPagination_nextArrow" type="template/html">
+    <li class="next"><a onclick="setPage({!page!})" href="javascript:;">Next</a></li>
+</script>
+<script id="filterPagination_nextArrowDisabled" type="template/html">
+    <li class="disabled"><span>&raquo;</span></li>
+</script>
+<!-- /* End: pagination Template */ -->

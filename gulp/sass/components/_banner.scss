@@ -1,0 +1,114 @@
+.hero {
+  &__inner {
+    max-width: 700px;
+
+    .hero-text-wrapper {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .hero-title {
+      font: 300 58px/73px $secFont;
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 21px;
+    }
+
+    .hero-subtitle {
+      font: 700 20px/28px $priFont;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .btn-large {
+      margin-top: 25px;
+    }
+
+  }
+}
+
+.usps {
+  padding: 22px 50px;
+  background-color: #f1f1f1;
+  margin: 0px;
+  text-align: center;
+  .usps-item {
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      display: inline-block;
+      background: red;
+      vertical-align: middle;
+      margin-right: 10px;
+
+
+      &.planet {
+        background: url(./planet3.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+
+      }
+
+      &.restoreable {
+        background: url(./restoreable.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      &.moneyreport {
+        background: url(./moneyreport.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+    }
+
+    figcaption {
+      display: inline-block;
+      font: 700 12px $priFont;
+      margin-left: 3px;
+      letter-spacing: 3.3px;
+      color: $priColor;
+      text-transform: uppercase;
+    }
+  }
+
+  [tooltip]::after {
+    font: 400 14px/22px $priFont;
+    min-width: 400px;
+  }
+
+}
+
+@media all and (max-width: 1690px) {
+
+}
+@media all and (max-width: 1280px) {
+  .usps .usps-item .icon {
+    display: none;
+  }
+}
+@media all and (max-width: 980px) {
+
+}
+@media all and (max-width: 768px) {
+  .usps {
+    display: none;
+  }
+
+
+}
+@media all and (max-width: 480px) {
+  .hero {
+    &__inner {
+      .hero-title {
+        font: 300 32px/40px $secFont;
+      }
+
+      .hero-subtitle {
+        font: 700 16px/24px $priFont;
+      }
+    }
+  }
+}

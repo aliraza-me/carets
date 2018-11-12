@@ -1,0 +1,398 @@
+<section class="site-footer-instagram site-section">
+  <div class="container">
+    <div class="sap">
+      <h4 class="site-section-title normal">Get to know Carets</h4>
+      <div class="site-section-subtitle">Follow @carets_shoes on Instagram.</div>
+
+      <div class="instagram-gallery" id="insta-feed"></div>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter site-section">
+  {% if section.settings.footer_newsletter_enable %}
+    <div class="container">
+      <div class="site-footer-newsletter">
+        {%- assign formId = 'ContactFooter' -%}
+        {% form 'customer', id: formId, novalidate: 'novalidate' %}
+          {% include 'form-status', formId %}
+          <div class="row">
+            <div class="col-lg-5 col-12">
+              <h4 class="site-footer-title" for="Email" class=""><span>Get $30  Off Your First Order</span></h4>
+              {% if section.settings.footer_newsletter_subheading != blank %}
+                <div class="site-footer-subtitle news">{{ section.settings.footer_newsletter_subheading }}</div>
+            </div>
+
+            {% endif %}
+            <div class=" col-lg-7 col-12 input-group{% if form.errors %} input-group--error{% endif %}">
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <input type="email"
+              name="contact[email]"
+              id="{{ formId }}-email"
+              class="input-group__field newsletter__input{% if form.errors %} input--error{% endif %}"
+              value="{% if customer %}{{ customer.email }}{% endif %}"
+              placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+              autocorrect="off"
+              autocapitalize="off"
+              {% if form.errors %} aria-invalid="true" aria-describedby="{{ formId }}-email-error"{% endif %}>
+              <div class="site-footer-subtitle news">{{ section.settings.footer_newsletter_subheading }}</div>
+              <span class="input-group-btn">
+                <button type="submit" class="btn newsletter__submit" name="commit" id="Subscribe">
+                  <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
+                </button>
+              </span>
+              <span id="{{ formId }}-email-error" class="input-error-message">{% include 'icon-error' %} {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+            </div>
+            {% endform %}
+          </div>
+      </div>
+    </div>
+  {% endif %}
+</section>
+
+<footer class="site-footer" role="contentinfo">
+
+  <div class="container">
+    <div class="sap"></div>
+    <div class="site-footer-wraper">
+      <div class="row">
+        <div class="col-md-7 col-12">
+          <div class="row">
+            <div class="col-md-4 col-6">
+              {% if linklists[section.settings.footer_linklist].links.size > 0 %}
+              <ul class="site-footer-linklist">
+                {% for link in linklists[section.settings.footer_linklist].links %}
+                <li class="site-footer-linklist-item">
+                  <a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>
+                </li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+            </div>
+
+            <div class="col-md-4 col-6">
+              {% if linklists[section.settings.footer_linklist_two].links.size > 0 %}
+              <ul class="site-footer-linklist">
+                {% for link in linklists[section.settings.footer_linklist_two].links %}
+                <li class="site-footer-linklist-item">
+                  <a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>
+                </li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+            </div>
+
+            <div class="col-md-4 col-12">
+              {% if linklists[section.settings.footer_linklist_three].links.size > 0 %}
+                <ul class="site-footer-linklist">
+                  {% for link in linklists[section.settings.footer_linklist_three].links %}
+                    <li class="site-footer-linklist-item">
+                      <a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-5 col-12">
+          <div class="site-footer-sociallist">
+            <h4 class="title">Follow us</h4>
+
+            <ul class="icon-list">
+              <li class="site-footer-sociallist-item">
+                <a target="_blank" href="https://www.facebook.com/CaretsCoCom">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 27">
+                      <path fill="#CCA45C" fill-rule="nonzero" d="M12.16 8.473H8.017V5.757c0-1.02.676-1.257 1.152-1.257h2.923V.016L8.068 0C3.6 0 2.584 3.344 2.584 5.484v2.99H0v4.62h2.584v13.074h5.434V13.094h3.667l.474-4.62z"/>
+                  </svg>
+                </a>
+              </li>
+
+              <li class="site-footer-sociallist-item">
+                <a target="_blank" href="https://twitter.com/CaretsCoCom">
+                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 25 21">
+                      <path fill="#CCA45C" fill-rule="nonzero" d="M25 2.445c-.919.415-1.908.695-2.946.82A5.209 5.209 0 0 0 24.31.381a10.167 10.167 0 0 1-3.257 1.266A5.084 5.084 0 0 0 17.31 0c-2.833 0-5.129 2.334-5.129 5.214 0 .408.045.806.133 1.188C8.05 6.184 4.27 4.109 1.741.954a5.253 5.253 0 0 0-.695 2.622c0 1.809.906 3.405 2.282 4.34a5.051 5.051 0 0 1-2.323-.653v.066c0 2.526 1.767 4.632 4.114 5.112a5.078 5.078 0 0 1-2.317.089c.653 2.071 2.547 3.579 4.791 3.62A10.184 10.184 0 0 1 0 18.31a14.343 14.343 0 0 0 7.862 2.342c9.435 0 14.593-7.944 14.593-14.834 0-.226-.004-.451-.014-.675A10.485 10.485 0 0 0 25 2.445z"/>
+                  </svg>
+                </a>
+              </li>
+
+              <li class="site-footer-sociallist-item">
+                <a target="_blank" href="https://www.instagram.com/carets_shoes/">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 26">
+                      <g fill="#CCA45C" fill-rule="nonzero">
+                          <path d="M12.6 6.475C9.1 6.475 6.2 9.38 6.2 13c0 3.62 2.85 6.525 6.4 6.525 3.55 0 6.4-2.956 6.4-6.525 0-3.569-2.9-6.525-6.4-6.525zm0 10.705c-2.25 0-4.1-1.886-4.1-4.18 0-2.294 1.85-4.18 4.1-4.18 2.25 0 4.1 1.886 4.1 4.18 0 2.294-1.85 4.18-4.1 4.18z"/>
+                          <ellipse cx="19.25" cy="6.322" rx="1.45" ry="1.478"/>
+                          <path d="M23 2.498c-1.3-1.376-3.15-2.09-5.25-2.09H7.45C3.1.408.2 3.365.2 7.8v10.451c0 2.192.7 4.078 2.1 5.455 1.35 1.325 3.15 1.988 5.2 1.988h10.2c2.15 0 3.95-.714 5.25-1.988C24.3 22.38 25 20.494 25 18.302V7.8c0-2.141-.7-3.976-2-5.302zm-.2 15.804c0 1.58-.55 2.855-1.45 3.722-.9.866-2.15 1.325-3.65 1.325H7.5c-1.5 0-2.75-.459-3.65-1.325-.9-.918-1.35-2.193-1.35-3.773V7.8c0-1.53.45-2.804 1.35-3.722C4.7 3.212 6 2.753 7.5 2.753h10.3c1.5 0 2.75.459 3.65 1.376.85.918 1.35 2.193 1.35 3.671v10.502z"/>
+                      </g>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-footer-copyright desktop">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="site-footer-copyright-links">
+              <li class="item content">&copy; {{ 'now' | date: "%Y" }}, All Rights Reserved {{ shop.name | link_to: '/' }}</li>
+              {% if linklists[section.settings.footer_linklist_four].links.size > 0 %}
+                <ul class="site-footer-copyright-linklist">
+                  {% for link in linklists[section.settings.footer_linklist_four].links %}
+                    <li class="item link">
+                      <a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+          </div>
+
+          {% if section.settings.show_payment_icons %}
+          <div class="col-md-6">
+            {% unless shop.enabled_payment_types == empty %}
+            <ul class="payment-icons">
+              {% for type in shop.enabled_payment_types %}
+              <li class="payment-icon">
+                {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+              </li>
+              {% endfor %}
+            </ul>
+            {% endunless %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="site-footer-copyright mobile">
+        <div class="row">
+          {% if section.settings.show_payment_icons %}
+          <div class="col-md-6">
+            {% unless shop.enabled_payment_types == empty %}
+            <ul class="payment-icons">
+            <span class="payment-icons-title">We accept following payment methods</span>
+              {% for type in shop.enabled_payment_types %}
+              <li class="payment-icon">
+                {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+              </li>
+              {% endfor %}
+            </ul>
+            {% endunless %}
+          </div>
+          {% endif %}
+
+          <div class="col-md-6">
+            <div class="site-footer-copyright-links">
+              {% if linklists[section.settings.footer_linklist_four].links.size > 0 %}
+                <ul class="site-footer-copyright-linklist">
+                  <li class="item content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}</li>
+                  {% for link in linklists[section.settings.footer_linklist_four].links %}
+                    <li class="item link">
+                      <a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+  {
+    "name": {
+      "en": "Footer",
+      "de": "Fußzeile",
+      "fr": "Pied de page",
+      "it": "Footer",
+      "ja": "フッター",
+      "es": "Pie de página",
+      "pt-BR": "Rodapé"
+    },
+    "settings": [
+      {
+        "type": "header",
+        "content": {
+          "en": "Menu",
+          "de": "Menü",
+          "fr": "Menu",
+          "it": "Menu",
+          "ja": "メニュー",
+          "es": "Menú",
+          "pt-BR": "Menu"
+        }
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist",
+        "label": {
+          "en": "Primary menu",
+          "de": "Hauptmenü",
+          "fr": "Menu principal",
+          "it": "Menu principale",
+          "ja": "プライマリメニュー",
+          "es": "Menú primario",
+          "pt-BR": "Menu principal"
+        },
+        "default": "footer",
+        "info": {
+          "en": "This menu won't show dropdown items",
+          "de": "Dieses Menü zeigt keine Dropdowns an",
+          "fr": "Ce menu n'affichera pas les éléments des menus déroulants",
+          "it": "Questo menu non mostrerà elementi a discesa",
+          "ja": "このメニューにはドロップダウンアイテムは表示されません",
+          "es": "Este menú no mostrará elementos desplegables",
+          "pt-BR": "Este menu não mostra itens de menus suspensos"
+        }
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist_two",
+        "label": {
+          "en": "Additional menu",
+          "de": "Extra Menü",
+          "fr": "Menu supplémentaire",
+          "it": "Menu aggiuntivo",
+          "ja": "追加メニュー",
+          "es": "Menú adicional",
+          "pt-BR": "Menu adicional"
+        },
+        "default": "main-menu",
+        "info": {
+          "en": "This menu won't show dropdown items",
+          "de": "Dieses Menü zeigt keine Dropdowns an",
+          "fr": "Ce menu n'affichera pas les éléments des menus déroulants",
+          "it": "Questo menu non mostrerà elementi a discesa",
+          "ja": "このメニューにはドロップダウンアイテムは表示されません",
+          "es": "Este menú no mostrará elementos desplegables",
+          "pt-BR": "Este menu não mostra itens de menus suspensos"
+        }
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist_three",
+        "label": {
+          "en": "Additional menu",
+          "de": "Extra Menü",
+          "fr": "Menu supplémentaire",
+          "it": "Menu aggiuntivo",
+          "ja": "追加メニュー",
+          "es": "Menú adicional",
+          "pt-BR": "Menu adicional"
+        },
+        "default": "main-menu",
+        "info": {
+          "en": "This menu won't show dropdown items",
+          "de": "Dieses Menü zeigt keine Dropdowns an",
+          "fr": "Ce menu n'affichera pas les éléments des menus déroulants",
+          "it": "Questo menu non mostrerà elementi a discesa",
+          "ja": "このメニューにはドロップダウンアイテムは表示されません",
+          "es": "Este menú no mostrará elementos desplegables",
+          "pt-BR": "Este menu não mostra itens de menus suspensos"
+        }
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist_four",
+        "label": {
+          "en": "Copyright menu",
+          "de": "Extra Menü",
+          "fr": "Menu supplémentaire",
+          "it": "Menu aggiuntivo",
+          "ja": "追加メニュー",
+          "es": "Menú adicional",
+          "pt-BR": "Menu adicional"
+        },
+        "default": "main-menu",
+        "info": {
+          "en": "This menu won't show dropdown items",
+          "de": "Dieses Menü zeigt keine Dropdowns an",
+          "fr": "Ce menu n'affichera pas les éléments des menus déroulants",
+          "it": "Questo menu non mostrerà elementi a discesa",
+          "ja": "このメニューにはドロップダウンアイテムは表示されません",
+          "es": "Este menú no mostrará elementos desplegables",
+          "pt-BR": "Este menu não mostra itens de menus suspensos"
+        }
+      },
+      {
+        "type": "header",
+        "content": {
+          "en": "Newsletter",
+          "de": "Newsletter",
+          "fr": "Newsletter",
+          "it": "Newsletter",
+          "ja": "ニュースレター",
+          "es": "Boletín",
+          "pt-BR": "Newsletter"
+        }
+      },
+      {
+        "type": "checkbox",
+        "id": "footer_newsletter_enable",
+        "label": {
+          "en": "Show newsletter signup",
+          "de": "Newsletter Signup anzeigen",
+          "fr": "Afficher l'inscription à la newsletter",
+          "it": "Mostra iscrizione alla Newsletter",
+          "ja": "ニュースレターのサインアップを表示する",
+          "es": "Mostrar suscripción al boletín",
+          "pt-BR": "Exibir assinatura da newsletter"
+        },
+        "default": false
+      },
+      {
+        "type": "richtext",
+        "id": "footer_newsletter_subheading",
+        "label": {
+          "en": "Subheading",
+          "de": "Unter-Überschrift",
+          "fr": "Sous-titre",
+          "it": "Sottotitolo",
+          "ja": "小見出し",
+          "es": "Subtítulo",
+          "pt-BR": "Subtítulo"
+        },
+        "default": {
+          "en": "<p>A short sentence describing what someone will receive by subscribing</p>",
+          "de": "<p>Eine kurze Beschreibung zum Inhalt des Newsletters</p>",
+          "fr": "<p>Petite phrase qui décrit ce qu'on reçoit en s'inscrivant</p>",
+          "it": "<p>Una breve frase che descrive ciò che qualcuno riceverà effettuando l'iscrizione</p>",
+          "ja": "<p>購読している人が何を受け取ることができるかについて説明する短い文章</p>",
+          "es": "<p>Una frase corta que describe lo que las personas recibirán al suscribirse</p>",
+          "pt-BR": "<p>Uma frase curta que descreve o que alguém receberá ao assinar</p>"
+        }
+      },
+      {
+        "type": "header",
+        "content": {
+          "en": "Payment methods",
+          "de": "Zahlungsarten",
+          "fr": "Moyens de paiement",
+          "it": "Metodi di pagamento",
+          "ja": "お支払い方法",
+          "es": "Métodos de pago",
+          "pt-BR": "Formas de pagamento"
+        }
+      },
+      {
+        "type": "checkbox",
+        "id": "show_payment_icons",
+        "label": {
+          "en": "Show payment icons",
+          "de": "Zahlungs-Buttons anzeigen",
+          "fr": "Afficher les icônes de paiement",
+          "it": "Mostra le icone di pagamento",
+          "ja": "支払いアイコンを表示する",
+          "es": "Mostrar iconos de pago",
+          "pt-BR": "Exibir ícones de pagamento"
+        },
+        "default": false
+      }
+    ]
+  }
+{% endschema %}

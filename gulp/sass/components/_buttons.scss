@@ -1,0 +1,73 @@
+.site-btn {
+  display: inline-block;
+  box-sizing: border-box;
+  text-decoration: none;
+
+  &.btn-large {
+    padding: 0px 70px;
+    height: 70px;
+    background: $secColor;
+    font: 900 20px/70px $priFont;
+    text-align: center;
+    color: #ffffff;
+    text-transform: uppercase;
+
+    &:hover {
+      background: #bb8d3a;
+      color: #fff;
+    }
+  }
+
+  &.btn-fullwidth {
+    width: 100%;
+    height: 72px;
+    background: $secColor;
+    border: none;
+    font: 900 22px/72px $priFont;
+    color: #fff;
+    text-transform: uppercase;
+    margin-top: 30px;
+  }
+
+  &.btn-secondary {
+    font: 900 16px $priFont;
+    color: $secColor;
+    text-transform: uppercase;
+    background: none;
+    border: none;
+    padding: 0;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+
+
+@media all and (max-width: 1690px) {
+
+}
+@media all and (max-width: 1280px) {
+
+}
+@media all and (max-width: 980px) {
+
+}
+@media all and (max-width: 736px) {
+
+}
+@media all and (max-width: 480px) {
+  .site-btn {
+    &.btn-large {
+      height: 50px;
+      padding: 0px 48px;
+      font: 900 16px/50px $priFont;
+    }
+
+    &.btn-fullwidth {
+
+    }
+  }
+
+}

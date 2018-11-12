@@ -1,0 +1,397 @@
+.site-footer {
+  &-instagram {
+    padding-bottom: 0px;
+    .instagram-gallery {
+      margin-top: 40px;
+    }
+  }
+
+  &-wraper {
+    padding-top: 44px;
+    border-top: 1px solid $sapColor;
+  }
+
+  &-linklist {
+    &-item {
+      margin-bottom: 5px;
+      a {
+        font: 700 14px/2.14 $priFont;
+        color: $priColor;
+        text-decoration: none;
+      }
+    }
+  }
+
+  &-sociallist {
+    .title {
+      font: 700 16px/1.38 $priFont;
+      color: $priColor;
+      margin-bottom: 30px;
+    }
+
+    &-item {
+      display: inline-block;
+      margin-right: 30px;
+      transition: all .3s ease;
+
+      svg {
+        height: 26px;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+
+  }
+
+  &-copyright {
+    &.desktop {
+      display: block;
+    }
+
+    &.mobile {
+      display: none;
+    }
+
+    padding: 25px 0px;
+    border-top: 1px solid $sapColor;
+    margin-top: 60px;
+    .payment-icons {
+      text-align: right;
+      .payment-icon {
+        display: inline-block;
+        margin-left: 13px;
+        svg {
+          width: 38px;
+        }
+      }
+    }
+
+    &-links {
+      .site-footer-copyright-linklist {
+        .item {
+          display: inline-block;
+          color: $lightGrayColor;
+          font: 400 13px $priFont;
+          a {
+            font: 400 13px $priFont;
+            color: $lightGrayColor;
+            text-decoration: none
+          }
+
+          &.content {
+            padding-right: 15px;
+            margin-right: 15px;
+            border-right: 1px solid $sapColor;
+          }
+        }
+      }
+    }
+  }
+}
+
+.forgot-text {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+#ContactFooter-email-error{
+  display: none
+}
+// Newsletter need to paste in orignal file
+
+.newsletter {
+  .site-footer-newsletter {
+    padding: 55px 100px;
+    background: #f4f4f4;
+    margin-top: 40px;
+
+    .site-footer-title {
+      text-align: left;
+      span {
+        font: 900 18px/24px $priFont;
+        text-transform: uppercase;
+        color: $priColor;
+        padding-top: 15px;
+      }
+    }
+  }
+
+
+  .site-footer-subtitle {
+    font: 400 18px/23px $priFont;
+    color: $priColor;
+    text-align: left;
+    margin-top: 12px;
+  }
+
+  .input-group {
+    max-width: 795px;
+    margin: 0 auto;
+    position: relative;
+
+    .site-footer-subtitle {
+      display: none;
+    }
+
+    input[type="email"] {
+      width: 100%;
+      height: 92px;
+      background: #fff;
+      border: none;
+      padding-left: 35px;
+      margin: 0;
+      font: 400 18px $priFont;
+      color: $priColor;
+
+      &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: rgba($priColor, .5);
+        font: 400 18px $priFont;
+      }
+      &::-moz-placeholder { /* Firefox 19+ */
+        color: rgba($priColor, .5);
+        font: 400 18px/70px $priFont;
+      }
+      &:-ms-input-placeholder { /* IE 10+ */
+        color: rgba($priColor, .5);
+        font: 400 18px $priFont;
+      }
+      &:-moz-placeholder { /* Firefox 18- */
+        color: rgba($priColor, .5);
+        font: 400 18px/70px $priFont;
+      }
+    }
+
+    &-btn {
+      position: absolute;
+      top: 15px;
+      right: 30px;
+
+      button[type="submit"] {
+        width: 173px;
+        height: 61px;
+        background-color: $secColor;
+        font: 700 16px $priFont;
+        color: #ffffff;
+        text-transform: uppercase;
+      }
+    }
+
+  }
+}
+
+
+@media all and (max-width: 1690px) {
+
+}
+@media all and (max-width: 1280px) {
+  .newsletter .site-footer-newsletter {
+    padding: 55px 40px;
+  }
+}
+@media all and (max-width: 980px) {
+
+}
+
+@media all and (max-width: 768px) {
+
+  .newsletter {
+    .container {
+      padding: 0;
+      margin: 0;
+      max-width: 100%
+    }
+    .site-footer-newsletter {
+      padding: 40px 20px;
+      margin-top: 0px;
+
+      .site-footer-title {
+        margin-bottom: 10px;
+      }
+    }
+
+    .site-footer-tite {
+      margin-bottom: 9px;
+    }
+
+    .input-group {
+      max-width: 795px;
+      margin: 0 auto;
+      position: relative;
+
+      input[type="email"] {
+        height: 60px;
+        color: $priColor;
+        padding-left: 15px;
+        border-radius: 0px;
+      }
+
+      &-btn {
+        position: absolute;
+        top: 0;
+        right:15px;
+
+        button[type="submit"] {
+          width: 120px;
+          height: 60px;
+          font: 700 14px $priFont;
+          border-radius: 0px;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 480px) {
+  .site-footer-sociallist {
+    text-align: center;
+    padding: 25px 0px;
+    margin-top: 15px;
+    border-top: 1px solid $sapColor;
+
+    .title {
+      display: none;
+    }
+
+    &-item {
+      svg {
+        height: 32px;
+      }
+    }
+  }
+
+  .site-footer-copyright {
+    margin-top: 30px;
+  }
+
+  .site-section {
+    padding: 40px 0px;
+  }
+
+
+
+  .site-footer {
+    &-wraper {
+      padding-top: 20px;
+    }
+
+    &-copyright {
+      &.mobile {
+        display: block;
+        margin-top: 0px;
+
+        .payment-icons {
+          text-align: left;
+          padding-bottom: 15px;
+          border-bottom: 1px solid $sapColor;
+
+          &-title {
+            font: 400 13px $priFont;
+            color: $lightGrayColor;
+            display: block;
+            margin-bottom: 5px;
+          }
+        }
+      }
+
+      &.desktop {
+        display: none;
+      }
+
+      &-linklist {
+        margin-top: 30px;
+      }
+    }
+  }
+
+  .site-footer-instagram {
+    padding-bottom: 0px;
+    .container {
+      padding: 0;
+    }
+
+    a:nth-child(7), a:nth-child(8) {
+      display: none;
+    }
+  }
+
+  #carets-the-most-stylish-minimalist-dress-shoe {
+    .site-footer-wraper {
+      border: none;
+      padding-top: 0;
+    }
+
+    .site-footer-subtitle {
+      display: none;
+    }
+
+    .input-group {
+      .site-footer-subtitle {
+        display: block;
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 375px) {
+
+}
+
+
+
+
+#mini-cart {
+  width: 350px;
+  position: absolute;
+  right: 10px;
+  top: 40px;
+  z-index: 999;
+  background: #f5f5f5;
+  display: none;
+  padding: 3px;
+}
+
+#mini-cart .td-image {
+  width: 60px;
+}
+
+#mini-cart .count, #mini-cart .subtotal, #mini-cart .buttons {
+  padding: 10px;
+}
+
+#mini-cart .subtotal {
+  text-align: right;
+  padding-right: 5px;
+}
+#mini-cart .subtotal .amount {
+  display: inline-block;
+  width: 85px;
+  padding: 0 10px;
+}
+#mini-cart table tr, #mini-cart .count {
+  border-bottom: 1px solid #ccc;
+}
+#mini-cart table td {
+  border: none;
+}
+
+#mini-cart a {
+  padding: 5px;
+}
+#mini-cart a.checkout {
+  float: right;
+  background: #000;
+  color: #fff;
+}
+
+#mini-cart .td-price {
+  width: 85px;
+}
+
+#mini-cart .item-price {
+  float: right;
+  margin-right: 5px;
+}

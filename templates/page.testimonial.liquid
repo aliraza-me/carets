@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="grid">
+    <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
+      <div class="section-header text-center">
+        <h1 class="page-title">{{ page.title }}</h1>
+        <h4 class="pafge-subtitle">Our team is super helpful</h4>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          {% if page.content.size > 0 %}
+          <div class="rte">
+            {{ page.content }}
+          </div>
+          {% endif %}
+        </div>
+
+        <div class="col-md-6">
+          <div class="contact-form form-vertical">
+
+            <h2 class="page-sec-heading">Send an email</h2>
+            {%- assign formId = 'ContactForm' -%}
+            {% form 'contact', id: formId %}
+            {% include 'form-status', formId %}
+
+            <div class="">
+              <!-- <label for="{{ formId }}-name">{{ 'contact.form.name' | t }}</label> -->
+              <input type="text" id="{{ formId }}-name" name="contact[name]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="{{ 'contact.form.name' | t }}">
+            </div>
+
+            <div class="">
+              <!-- <label for="{{ formId }}-email">{{ 'contact.form.email' | t }} <span aria-hidden="true">*</span></label> -->
+              <input
+              type="email"
+              id="{{ formId }}-email"
+              name="contact[email]"
+              autocorrect="off"
+              autocapitalize="off"
+              value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+              aria-required="true"
+              placeholder="{{ 'contact.form.email' | t }}"
+              {%- if form.errors contains 'email' -%}
+              class="input--error"
+              aria-invalid="true"
+              aria-describedby="{{ formId }}-email-error"
+              {%- endif -%}
+              >
+              <span id="{{ formId}}-email-error" class="input-error-message">{% include 'icon-error' %} {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+            </div>
+
+            <input type="tel" id="{{ formId }}-phone" name="contact[phone]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}" placeholder="{{ 'contact.form.phone' | t }}">
+
+            <textarea rows="10" id="{{ formId }}-message" name="contact[body]" placeholder="{{ 'contact.form.message' | t }}">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+
+            <input type="submit" class="btn" value="{{ 'contact.form.submit' | t }}">
+
+            {% endform %}
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

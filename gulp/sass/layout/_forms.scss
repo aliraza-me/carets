@@ -1,0 +1,166 @@
+.form-vertical {
+  max-width: 480px;
+  margin: 0 auto;
+
+  h1 {
+    font: 700 36px $secFont;
+    color: $priColor;
+    margin-bottom: 40px;
+  }
+
+  textarea {
+    background: $lightenGray;
+    border: none;
+    font: 400 18px $priFont;
+    color: $priColor;
+  }
+
+  input[type="email"], input[type="password"], input[type="text"], input[type="tel"] {
+    background: $lightenGray;
+    height: 60px;
+    border: none;
+    font: 400 18px $priFont;
+    color: $priColor;
+
+
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      font: 400 18px $priFont;
+      color: $lightGrayColor;
+
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+      font: 400 18px $priFont;
+      color: $lightGrayColor;
+
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+      font: 400 18px $priFont;
+      color: $lightGrayColor;
+
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+      font: 400 18px $priFont;
+      color: $lightGrayColor;
+
+    }
+  }
+
+  .site-btn.btn-fullwidth {
+    height: 60px;
+    line-height: 44px;
+    margin-top: 0;
+    -webkit-appearance: none;
+    font-weight: 500;
+  }
+
+  input[type=checkbox] + label {
+    display: block;
+    font: 400 16px $priFont;
+    color: $priColor;
+    margin-bottom: 20px;
+  }
+
+  input[type=checkbox] {
+    display: none;
+  }
+
+  input[type=checkbox] + label:before {
+    content: "\2714";
+    display: inline-block;
+    background: #f2f2f2;
+    width: 20px;
+    height: 20px;
+    padding-left: 6px;
+    padding-bottom: 3px;
+    margin-right: 0.2em;
+    border: 1px solid $lighterGrayColor;
+    vertical-align: bottom;
+    color: transparent;
+    transition: .2s;
+    line-height: 25px;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+
+  input[type=checkbox] + label:active:before {
+    // transform: scale(0);
+  }
+
+  input[type=checkbox]:checked + label:before {
+    // background-color: $secColor;
+    color: $secColor;
+    border: 1px solid $secColor;
+  }
+
+  .forgot {
+    font: 400 16px $priFont;
+    color: $priColor;
+    text-align: left;
+
+    a {
+      font-weight: 500;
+      color: $secColor;
+    }
+  }
+
+  .form-saprater {
+    font: 400 12px $priFont;
+    color: $lightGrayColor;
+    text-transform: uppercase;
+    position: relative;
+    margin: 30px 0px;
+
+    span {
+      z-index: 2;
+      background: #fff;
+      padding: 0px 10px;
+      display: inline-block;
+      position: relative;
+    }
+
+    &:after {
+      content: '';
+      width: 100%;
+      height: 1px;
+      background: $lighterGrayColor;
+      position: absolute;
+      top: 7px;
+      left: 0px;
+      z-index: 1;
+    }
+
+  }
+
+  #customer_register_link {
+    font: 900 16px $priFont;
+    color: $secColor;
+    text-transform: uppercase;
+    padding: 10px;
+  }
+
+  &.contact-form {
+    max-width: 100%;
+
+    input[type="submit"] {
+      width: 100%;
+      height: 60px;
+    }
+  }
+}
+
+
+
+@media all and (max-width: 480px) {
+  .form-vertical h1 {
+    font-size: 26px;
+    margin-bottom: 22px;
+  }
+
+  .form-vertical input, .form-vertical select, .form-vertical textarea {
+    margin-bottom: 15px;
+  }
+
+  .form-vertical input[type=checkbox] + label:before {
+    margin-right: 15px;
+  }
+}

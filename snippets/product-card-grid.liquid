@@ -1,0 +1,46 @@
+
+<div class="grid-view-item{% unless product.available %} grid-view-item--sold-out{% endunless %} product-card-wrapper">
+  <a class="product-link" href="{{ product.url | within: collection }}">
+
+    {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
+    {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
+    {%- assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+    {% unless product.featured_image == blank %}
+
+    {% endunless %}
+
+    <figure id="{{ wrapper_id }}" class="product-image-wrapper js">
+        <img id="{{ img_id }}"
+          class="grid-view-item__image lazyload"
+          src="{{ product.featured_image | img_url: '' }}"
+          data-src="{{ img_url }}"
+          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+          data-aspectratio="{{ product.featured_image.aspect_ratio }}"
+          data-sizes="auto"
+          alt="">
+    </figure>
+    <hr \>
+
+    <noscript>
+      {% capture image_size %}{{ max_height }}x{{ max_height }}{% endcapture %}
+      <img class="grid-view-item__image" src="{{ product.featured_image.src | img_url: image_size, scale: 2 }}" alt="{{ product.featured_image.alt }}" style="max-width: {{ max_height | times: product.featured_image.aspect_ratio }}px;">
+    </noscript>
+
+    <figurecaption class="product-detail clearfix">
+      <h2 class="product-title">{{ product.title }}</h2>
+
+    <dl class="price" data-price="">
+      <div class="price__regular">
+        <dd>
+          <span class="price-item price-item--regular" data-regular-price="">
+            <span class="money" data-original-value="35000" data-usd="$350.00 USD">$350.00 USD</span>
+          </span>
+        </dd>
+      </div>
+    </dl>
+
+      <span class="stamped-product-reviews-badge" data-id="{{ product.id }}">{{ product.metafields.stamped.badge }}</span>
+    <figurecaption>
+  </a>
+</div>

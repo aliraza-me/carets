@@ -1,0 +1,42 @@
+<div class="container">
+  {% include 'breadcrumbs' %}
+  <div class="grid">
+    <div class="grid__item medium-up--one-half medium-up--push-one-quarter">
+
+      <div class="form-vertical">
+        {% form 'create_customer' %}
+
+          <h1 class="text-center">{{ 'customer.register.title' | t }}</h1>
+
+          {%- if form.errors -%}
+            <div class="form-message form-message--error">
+              {{ form.errors | default_errors }}
+            </div>
+          {%- endif -%}
+
+          <input type="text" placeholder="First Name" name="customer[first_name]" id="FirstName" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autofocus>
+
+          <input type="text" placeholder="Last Name" name="customer[last_name]" id="LastName" {% if form.last_name %}value="{{ form.last_name }}"{% endif %}>
+
+          <input type="email" placeholder="Email address" name="customer[email]" id="Email" class="{% if form.errors contains 'email' %} input--error{% endif %}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off">
+
+          <input type="password" placeholder="Password" name="customer[password]" id="CreatePassword" class="{% if form.errors contains 'password' %} input--error{% endif %}">
+
+          <p class="text-center">
+            <input type="submit" value="{{ 'customer.register.submit' | t }}" class="site-btn btn-fullwidth">
+          </p>
+
+        {% endform %}
+
+        <div class="text-center">
+          <!-- <p class="forgot" href="#recover" id="RecoverPassword">By clicking “Create account,” you agree to Carets’s <a href=""> terms </a> and <a href=""> privacy policy </a>.</p> -->
+
+          <div class="form-saprater"><span>or</span></div>
+          <p>
+            <a id="customer_register_link" href="/account/login">Log in as existing customer</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
