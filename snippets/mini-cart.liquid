@@ -1,0 +1,55 @@
+<div class="mini-cart">
+  {% for item in cart.items %}
+    <tr class="cart__row border-bottom line{{ forloop.index }}{% if forloop.first %} border-top{% endif %}">
+      <td class="cart__image-wrapper">
+        <div>
+          <img class="cart__image" src="{{ item | img_url: '95x95', scale: 2 }}" alt="{{ item.title | escape }}" data-item-url="{{ item.url }}">
+        </div>
+      </td>
+      <td class="cart__meta small--text-left">
+        <div class="list-view-item__title">
+          <a href="{{ item.url }}">
+            {{ item.product.title }}
+            {% if item.quantity > 1 %}
+              <span class="medium-up--hide"><span class="visually-hidden">{{ 'cart.label.quantity' | t }}</span>(x{{ item.quantity }})</span>
+            {% endif %}
+          </a>
+        </div>
+
+        {% comment %}
+          Optional, loop through custom product line items if available
+
+          Line item properties come in as having two parts. The first part will be passed with the default form,
+          but p.last is the actual custom property and may be blank. If it is, don't show it.
+
+          For more info on line item properties, visit:
+            - http://docs.shopify.com/support/your-store/products/how-do-I-collect-additional-information-on-the-product-page-Like-for-a-monogram-engraving-or-customization
+        {% endcomment %}
+        {%- assign property_size = item.properties | size -%}
+        {% if property_size > 0 %}
+          <div class="cart__meta-text">
+            {% for p in item.properties %}
+              {% unless p.last == blank %}
+                {{ p.first }}:
+
+                {% comment %}
+                  Check if there was an uploaded file associated
+                {% endcomment %}
+                {% if p.last contains '/uploads/' %}
+                  <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                {% else %}
+                  {{ p.last }}
+                {% endif %}
+              {% endunless %}
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <p class="small--hide">
+          <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="btn btn--small btn--tertiary cart__remove" aria-label="{{ 'cart.general.remove' | t }} {{ item.product.title }}">{{ 'cart.general.remove' | t }}</a>
+        </p>
+      </td>
+    </tr>
+
+  {% endfor %}
+</div>
